@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960" height="680" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="680" fill="white"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <!-- User -->
+  <rect x="10" y="290" width="100" height="55" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+  <text x="60" y="314" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#085041">User</text>
+  <text x="60" y="330" text-anchor="middle" font-family="Arial" font-size="9" fill="#0F6E56">www.foobar.com</text>
+
+  <!-- Arrow User to Firewall 1 -->
+  <line x1="110" y1="317" x2="155" y2="317" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Firewall 1 -->
+  <rect x="155" y="290" width="90" height="55" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1.5"/>
+  <text x="200" y="314" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#791F1F">Firewall 1</text>
+  <text x="200" y="330" text-anchor="middle" font-family="Arial" font-size="9" fill="#A32D2D">filters traffic</text>
+
+  <!-- Arrow Firewall 1 to SSL -->
+  <line x1="245" y1="317" x2="285" y2="317" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- SSL Certificate -->
+  <rect x="285" y="290" width="100" height="55" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="1.5"/>
+  <text x="335" y="311" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#633806">SSL cert</text>
+  <text x="335" y="327" text-anchor="middle" font-family="Arial" font-size="9" fill="#854F0B">HTTPS/443</text>
+  <text x="335" y="340" text-anchor="middle" font-family="Arial" font-size="9" fill="#854F0B">encrypted</text>
+
+  <!-- Arrow SSL to HAProxy -->
+  <line x1="385" y1="317" x2="425" y2="317" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- HAProxy -->
+  <rect x="425" y="280" width="120" height="75" rx="8" fill="#FBEAF0" stroke="#993556" stroke-width="2"/>
+  <text x="485" y="305" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#72243E">HAProxy</text>
+  <text x="485" y="321" text-anchor="middle" font-family="Arial" font-size="9" fill="#993556">Load balancer</text>
+  <text x="485" y="335" text-anchor="middle" font-family="Arial" font-size="9" fill="#993556">Round Robin</text>
+  <text x="485" y="349" text-anchor="middle" font-family="Arial" font-size="9" fill="#993556">SSL termination</text>
+
+  <!-- Monitoring client HAProxy -->
+  <rect x="425" y="365" width="120" height="35" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+  <text x="485" y="379" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#0C447C">Monitor 1</text>
+  <text x="485" y="393" text-anchor="middle" font-family="Arial" font-size="9" fill="#185FA5">Sumologic client</text>
+
+  <!-- Arrow HAProxy to Server 1 -->
+  <line x1="545" y1="300" x2="590" y2="180" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Arrow HAProxy to Server 2 -->
+  <line x1="545" y1="335" x2="590" y2="460" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Server 1 container -->
+  <rect x="590" y="30" width="340" height="290" rx="12" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.5"/>
+  <text x="760" y="56" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#0C447C">Server 1 (Primary)</text>
+
+  <!-- Firewall 2 -->
+  <rect x="610" y="68" width="300" height="36" rx="6" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
+  <text x="760" y="82" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#791F1F">Firewall 2</text>
+  <text x="760" y="96" text-anchor="middle" font-family="Arial" font-size="9" fill="#A32D2D">protects server 1</text>
+
+  <!-- Nginx 1 -->
+  <rect x="610" y="112" width="140" height="40" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text x="680" y="128" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#712B13">Nginx</text>
+  <text x="680" y="144" text-anchor="middle" font-family="Arial" font-size="9" fill="#993C1D">web server</text>
+
+  <!-- App Server 1 -->
+  <rect x="610" y="160" width="140" height="40" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+  <text x="680" y="176" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#633806">App server</text>
+  <text x="680" y="192" text-anchor="middle" font-family="Arial" font-size="9" fill="#854F0B">code base</text>
+
+  <!-- MySQL Primary -->
+  <rect x="610" y="208" width="140" height="40" rx="6" fill="#EAF3DE" stroke="#3B6D11" stroke-width="1"/>
+  <text x="680" y="224" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#27500A">MySQL Primary</text>
+  <text x="680" y="240" text-anchor="middle" font-family="Arial" font-size="9" fill="#3B6D11">read and write</text>
+
+  <!-- Monitor 2 -->
+  <rect x="760" y="112" width="150" height="136" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+  <text x="835" y="132" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0C447C">Monitor 2</text>
+  <text x="835" y="148" text-anchor="middle" font-family="Arial" font-size="9" fill="#185FA5">Sumologic client</text>
+  <text x="835" y="164" text-anchor="middle" font-family="Arial" font-size="9" fill="#185FA5">collects logs</text>
+  <text x="835" y="180" text-anchor="middle" font-family="Arial" font-size="9" fill="#185FA5">tracks QPS</text>
+  <text x="835" y="196" text-anchor="middle" font-family="Arial" font-size="9" fill="#185FA5">sends metrics</text>
+
+  <!-- Server 2 container -->
+  <rect x="590" y="350" width="340" height="290" rx="12" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.5"/>
+  <text x="760" y="376" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#0C447C">Server 2 (Replica)</text>
+
+  <!-- Firewall 3 -->
+  <rect x="610" y="388" width="300" height="36" rx="6" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
+  <text x="760" y="402" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#791F1F">Firewall 3</text>
+  <text x="760" y="416" text-anchor="middle" font-family="Arial" font-size="9" fill="#A32D2D">protects server 2</text>
+
+  <!-- Nginx 2 -->
+  <rect x="610" y="432" width="140" height="40" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text x="680" y="448" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#712B13">Nginx</text>
+  <text x="680" y="464" text-anchor="middle" font-family="Arial" font-size="9" fill="#993C1D">web server</text>
+
+  <!-- App Server 2 -->
+  <rect x="610" y="480" width="140" height="40" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+  <text x="680" y="496" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#633806">App server</text>
+  <text x="680" y="512" text-anchor="middle" font-family="Arial" font-size="9" fill="#854F0B">code base</text>
+
+  <!-- MySQL Replica -->
+  <rect x="610" y="528" width="140" height="40" rx="6" fill="#EAF3DE" stroke="#3B6D11" stroke-width="1"/>
+  <text x="680" y="544" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#27500A">MySQL Replica</text>
+  <text x="680" y="560" text-anchor="middle" font-family="Arial" font-size="9" fill="#3B6D11">read only</text>
+
+  <!-- Monitor 3 -->
+  <rect x="760" y="432" width="150" height="136" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+  <text x="835" y="452" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0C447C">Monitor 3</text>
+  <text x="835" y="468" text-anchor="middle" font-family="Arial" font-size="9" fill="#185FA5">Sumologic client</text>
+  <text x="835" y="484" text-anchor="middle" font-family="Arial" font-size="9" fill="#185FA5">collects logs</text>
+  <text x="835" y="500" text-anchor="middle" font-family="Arial" font-size="9" fill="#185FA5">tracks QPS</text>
+  <text x="835" y="516" text-anchor="middle" font-family="Arial" font-size="9" fill="#185FA5">sends metrics</text>
+
+  <!-- Replication arrow -->
+  <line x1="680" y1="248" x2="680" y2="528" stroke="#3B6D11" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+
+  <!-- Issues -->
+  <text x="10" y="650" font-family="Arial" font-size="10" fill="#A32D2D">Issues: SSL termination at LB | Single write DB | Same components on all servers</text>
+</svg>
