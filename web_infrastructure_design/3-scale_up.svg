@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960" height="620" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="620" fill="white"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <!-- User -->
+  <rect x="10" y="270" width="100" height="55" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+  <text x="60" y="294" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#085041">User</text>
+  <text x="60" y="310" text-anchor="middle" font-family="Arial" font-size="9" fill="#0F6E56">www.foobar.com</text>
+
+  <!-- Arrow User to HAProxy Cluster -->
+  <line x1="110" y1="297" x2="160" y2="297" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- HAProxy Cluster container -->
+  <rect x="160" y="230" width="180" height="135" rx="10" fill="#FBEAF0" stroke="#993556" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="250" y="252" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#72243E">HAProxy Cluster</text>
+
+  <!-- HAProxy 1 -->
+  <rect x="175" y="262" width="140" height="40" rx="6" fill="#FBEAF0" stroke="#993556" stroke-width="1.5"/>
+  <text x="245" y="278" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#72243E">HAProxy 1</text>
+  <text x="245" y="294" text-anchor="middle" font-family="Arial" font-size="9" fill="#993556">active node</text>
+
+  <!-- HAProxy 2 -->
+  <rect x="175" y="308" width="140" height="40" rx="6" fill="#FBEAF0" stroke="#993556" stroke-width="1.5"/>
+  <text x="245" y="324" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#72243E">HAProxy 2</text>
+  <text x="245" y="340" text-anchor="middle" font-family="Arial" font-size="9" fill="#993556">active node</text>
+
+  <!-- Sync arrow between HAProxies -->
+  <line x1="245" y1="302" x2="245" y2="308" stroke="#993556" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Arrow HAProxy to Web Server -->
+  <line x1="340" y1="270" x2="400" y2="160" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Arrow HAProxy to App Server -->
+  <line x1="340" y1="297" x2="400" y2="297" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Arrow HAProxy to DB Server -->
+  <line x1="340" y1="325" x2="400" y2="435" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Web Server -->
+  <rect x="400" y="80" width="240" height="160" rx="12" fill="#FAECE7" stroke="#993C1D" stroke-width="1.5"/>
+  <text x="520" y="106" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#712B13">Web Server</text>
+  <text x="520" y="124" text-anchor="middle" font-family="Arial" font-size="10" fill="#993C1D">dedicated server</text>
+  <rect x="420" y="136" width="200" height="40" rx="6" fill="#F0997B" stroke="#993C1D" stroke-width="1"/>
+  <text x="520" y="152" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#4A1B0C">Nginx</text>
+  <text x="520" y="168" text-anchor="middle" font-family="Arial" font-size="9" fill="#4A1B0C">serves static files</text>
+  <text x="520" y="226" text-anchor="middle" font-family="Arial" font-size="9" fill="#993C1D">Why: isolate static content</text>
+
+  <!-- App Server -->
+  <rect x="400" y="210" width="240" height="160" rx="12" fill="#FAEEDA" stroke="#854F0B" stroke-width="1.5"/>
+  <text x="520" y="236" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#633806">Application Server</text>
+  <text x="520" y="254" text-anchor="middle" font-family="Arial" font-size="10" fill="#854F0B">dedicated server</text>
+  <rect x="420" y="266" width="200" height="40" rx="6" fill="#EF9F27" stroke="#854F0B" stroke-width="1"/>
+  <text x="520" y="282" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#412402">App + Code base</text>
+  <text x="520" y="298" text-anchor="middle" font-family="Arial" font-size="9" fill="#412402">business logic</text>
+  <text x="520" y="356" text-anchor="middle" font-family="Arial" font-size="9" fill="#854F0B">Why: isolate processing</text>
+
+  <!-- DB Server -->
+  <rect x="400" y="350" width="240" height="160" rx="12" fill="#EAF3DE" stroke="#3B6D11" stroke-width="1.5"/>
+  <text x="520" y="376" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#27500A">Database Server</text>
+  <text x="520" y="394" text-anchor="middle" font-family="Arial" font-size="10" fill="#3B6D11">dedicated server</text>
+  <rect x="420" y="406" width="200" height="40" rx="6" fill="#97C459" stroke="#3B6D11" stroke-width="1"/>
+  <text x="520" y="422" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#173404">MySQL</text>
+  <text x="520" y="438" text-anchor="middle" font-family="Arial" font-size="9" fill="#173404">stores all data</text>
+  <text x="520" y="496" text-anchor="middle" font-family="Arial" font-size="9" fill="#3B6D11">Why: isolate data storage</text>
+
+  <!-- Arrow Web to App -->
+  <line x1="640" y1="160" x2="700" y2="240" stroke="#888" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+  <!-- Arrow App to DB -->
+  <line x1="640" y1="310" x2="700" y2="390" stroke="#888" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- Why labels on right -->
+  <rect x="700" y="100" width="240" height="380" rx="10" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="820" y="124" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#444441">Why each element?</text>
+  <text x="820" y="148" text-anchor="middle" font-family="Arial" font-size="10" fill="#5F5E5A">HAProxy cluster:</text>
+  <text x="820" y="164" text-anchor="middle" font-family="Arial" font-size="9" fill="#5F5E5A">eliminates LB as SPOF</text>
+  <text x="820" y="188" text-anchor="middle" font-family="Arial" font-size="10" fill="#5F5E5A">Web server (Nginx):</text>
+  <text x="820" y="204" text-anchor="middle" font-family="Arial" font-size="9" fill="#5F5E5A">serves static files fast</text>
+  <text x="820" y="228" text-anchor="middle" font-family="Arial" font-size="10" fill="#5F5E5A">Application server:</text>
+  <text x="820" y="244" text-anchor="middle" font-family="Arial" font-size="9" fill="#5F5E5A">runs business logic</text>
+  <text x="820" y="268" text-anchor="middle" font-family="Arial" font-size="10" fill="#5F5E5A">Database server:</text>
+  <text x="820" y="284" text-anchor="middle" font-family="Arial" font-size="9" fill="#5F5E5A">dedicated data storage</text>
+  <text x="820" y="308" text-anchor="middle" font-family="Arial" font-size="10" fill="#5F5E5A">Split components:</text>
+  <text x="820" y="324" text-anchor="middle" font-family="Arial" font-size="9" fill="#5F5E5A">scale each independently</text>
+  <text x="820" y="340" text-anchor="middle" font-family="Arial" font-size="9" fill="#5F5E5A">no resource competition</text>
+  <text x="820" y="356" text-anchor="middle" font-family="Arial" font-size="9" fill="#5F5E5A">easier maintenance</text>
+  <text x="820" y="372" text-anchor="middle" font-family="Arial" font-size="9" fill="#5F5E5A">better fault isolation</text>
+
+  <!-- Issues -->
+  <text x="10" y="590" font-family="Arial" font-size="10" fill="#444441">Each component on its own server allows horizontal scaling and independent resource allocation</text>
+</svg>
